@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.7.2" last-position="0,0" last-zoom="0.8">
+<dbmodel pgmodeler-ver="0.7.2" last-position="0,78" last-zoom="0.8">
 <database name="new_database">
 </database>
 
@@ -202,6 +202,24 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="pk_cargo" type="pk-constr" factor="100" table="public.cargo">
 		<columns names="codigo_cargo" ref-type="src-columns"/>
 	</constraint>
+</table>
+
+<table name="usuario">
+	<schema name="public"/>
+	<comment><![CDATA[usuarios que van hacer uso del sistema]]></comment>
+	<position x="396.25" y="602.5"/>
+	<column name="cedula_usr">
+		<type name="varchar" length="10"/>
+	</column>
+	<column name="contraseña_usr">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="primerNombre_usr">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="segundoNombre_usr">
+		<type name="varchar" length="25"/>
+	</column>
 </table>
 
 <constraint name="fk_sexo" type="fk-constr" comparison-type="MATCH FULL"
