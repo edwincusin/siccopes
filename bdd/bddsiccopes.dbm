@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.7.2" last-position="0,0" last-zoom="0.8">
+<database name="new_database">
+</database>
+
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="personalOperativo">
+	<schema name="public"/>
+	<comment><![CDATA[Esta tabal va a contener informacion del personal de colaboradores de la empresa]]></comment>
+	<position x="821.75" y="85"/>
+	<column name="cedula_pO">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="apellidoPaterno_pO">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="apellidoMaterno_pO">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="primerNombre_pO">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="segundoNombre_pO">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="fechaNacimiento_pO">
+		<type name="date"/>
+	</column>
+	<column name="profesion_pO">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="disponeVehiculo_pO">
+		<type name="varchar" length="3"/>
+		<comment><![CDATA[ingresar SI o NO]]></comment>
+	</column>
+	<column name="celular_pO">
+		<type name="varchar" length="10"/>
+	</column>
+	<column name="telefono_pO">
+		<type name="varchar" length="10"/>
+		<comment><![CDATA[celular o telefono]]></comment>
+	</column>
+	<column name="fechaIngreso_pO">
+		<type name="date"/>
+	</column>
+	<column name="fechaSalida_pO">
+		<type name="date"/>
+	</column>
+	<column name="email_pO">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="direccionDomicilio_pO">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="descripcionExtra_pO">
+		<type name="varchar" length="50"/>
+		<comment><![CDATA[campo adicional para decripcion de fecha de salida no es necesario ocupar]]></comment>
+	</column>
+	<column name="sexo_pO">
+		<type name="integer"/>
+	</column>
+	<column name="estadoCivil_pO">
+		<type name="integer"/>
+	</column>
+	<column name="nacionalidad_pO">
+		<type name="integer"/>
+	</column>
+	<column name="instruccion_pO">
+		<type name="integer"/>
+	</column>
+	<column name="tipoSangre_pO">
+		<type name="integer"/>
+	</column>
+	<column name="tipoLicenciaConducir_pO">
+		<type name="integer"/>
+	</column>
+	<column name="estadoLaboral_pO">
+		<type name="integer"/>
+	</column>
+	<column name="cargo_pO">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_cedula_personalOperativo" type="pk-constr" factor="100" table="public.&quot;personalOperativo&quot;">
+		<columns names="cedula_pO" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sexo">
+	<schema name="public"/>
+	<position x="50" y="9"/>
+	<column name="codigo_sexo">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_sexo">
+		<type name="varchar" length="25"/>
+	</column>
+	<constraint name="pk_sexo" type="pk-constr" factor="100" table="public.sexo">
+		<columns names="codigo_sexo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="estadoCivil">
+	<schema name="public"/>
+	<position x="61" y="74"/>
+	<column name="codigo_eC">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_eC">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="pk_estadoCivil" type="pk-constr" factor="100" table="public.&quot;estadoCivil&quot;">
+		<columns names="codigo_eC" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="nacionalidad">
+	<schema name="public"/>
+	<position x="8" y="142"/>
+	<column name="codigo_nacionalidad">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_nacionalidad">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="pk_nacionalidad" type="pk-constr" factor="100" table="public.nacionalidad">
+		<columns names="codigo_nacionalidad" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="intruccion">
+	<schema name="public"/>
+	<position x="20" y="210"/>
+	<column name="codigo_instruccion">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_instruccion">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="pk_instruccion" type="pk-constr" factor="100" table="public.intruccion">
+		<columns names="codigo_instruccion" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tipoSangre">
+	<schema name="public"/>
+	<position x="69" y="272"/>
+	<column name="codigo_tS">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_tS">
+		<type name="varchar" length="10"/>
+	</column>
+	<constraint name="pk_tipoSangre" type="pk-constr" factor="100" table="public.&quot;tipoSangre&quot;">
+		<columns names="codigo_tS" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tipoLicenciaConducir">
+	<schema name="public"/>
+	<position x="61" y="346"/>
+	<column name="codigo_tLC">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_tLC">
+		<type name="varchar" length="10"/>
+	</column>
+	<constraint name="pk_tipoLicenciaConducir" type="pk-constr" factor="100" table="public.&quot;tipoLicenciaConducir&quot;">
+		<columns names="codigo_tLC" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="estadoLaboral">
+	<schema name="public"/>
+	<comment><![CDATA[si es activo o pasivo ]]></comment>
+	<position x="69" y="429"/>
+	<column name="codigo_eL">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_eL">
+		<type name="varchar" length="20"/>
+	</column>
+	<constraint name="pk_estadoLaboral" type="pk-constr" factor="100" table="public.&quot;estadoLaboral&quot;">
+		<columns names="codigo_eL" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="cargo">
+	<schema name="public"/>
+	<position x="52" y="506"/>
+	<column name="codigo_cargo">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_cargo">
+		<type name="varchar" length="25"/>
+	</column>
+	<constraint name="pk_cargo" type="pk-constr" factor="100" table="public.cargo">
+		<columns names="codigo_cargo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="fk_sexo" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.sexo" table="public.&quot;personalOperativo&quot;">
+	<columns names="sexo_pO" ref-type="src-columns"/>
+	<columns names="codigo_sexo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_estadoCivil" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;estadoCivil&quot;" table="public.&quot;personalOperativo&quot;">
+	<columns names="estadoCivil_pO" ref-type="src-columns"/>
+	<columns names="codigo_eC" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_nacionalidad" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.nacionalidad" table="public.&quot;personalOperativo&quot;">
+	<columns names="nacionalidad_pO" ref-type="src-columns"/>
+	<columns names="codigo_nacionalidad" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_instruccion" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.intruccion" table="public.&quot;personalOperativo&quot;">
+	<columns names="instruccion_pO" ref-type="src-columns"/>
+	<columns names="codigo_instruccion" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_tipoSangre" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;tipoSangre&quot;" table="public.&quot;personalOperativo&quot;">
+	<columns names="tipoSangre_pO" ref-type="src-columns"/>
+	<columns names="codigo_tS" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_tipoLicenciaConducir" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;tipoLicenciaConducir&quot;" table="public.&quot;personalOperativo&quot;">
+	<columns names="tipoLicenciaConducir_pO" ref-type="src-columns"/>
+	<columns names="codigo_tLC" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_estadoLaboral" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;estadoLaboral&quot;" table="public.&quot;personalOperativo&quot;">
+	<columns names="estadoLaboral_pO" ref-type="src-columns"/>
+	<columns names="codigo_eL" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_cargo" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.cargo" table="public.&quot;personalOperativo&quot;">
+	<columns names="cargo_pO" ref-type="src-columns"/>
+	<columns names="codigo_cargo" ref-type="dst-columns"/>
+</constraint>
+<relationship name="&quot;rel_personalOperativo_sexo&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.sexo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_personalOperativo_estadoCivil&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.&quot;estadoCivil&quot;"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_personalOperativo_nacionalidad&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.nacionalidad"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_personalOperativo_intruccion&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.intruccion"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_personalOperativo_tipoSangre&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.&quot;tipoSangre&quot;"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_personalOperativo_tipoLicenciaConducir&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.&quot;tipoLicenciaConducir&quot;"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_personalOperativo_estadoLaboral&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.&quot;estadoLaboral&quot;"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_personalOperativo_cargo&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.cargo"
+	 src-required="true" dst-required="true"/>
+
+</dbmodel>
