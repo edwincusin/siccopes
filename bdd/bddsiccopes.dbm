@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.7.2" last-position="0,78" last-zoom="0.8">
+<dbmodel pgmodeler-ver="0.7.2" last-position="0,149" last-zoom="0.8">
 <database name="new_database">
 </database>
 
@@ -13,7 +13,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="personalOperativo">
 	<schema name="public"/>
 	<comment><![CDATA[Esta tabal va a contener informacion del personal de colaboradores de la empresa]]></comment>
-	<position x="821.75" y="85"/>
+	<position x="1371.75" y="102.5"/>
 	<column name="cedula_pO">
 		<type name="varchar" length="25"/>
 	</column>
@@ -93,7 +93,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="sexo">
 	<schema name="public"/>
-	<position x="50" y="9"/>
+	<position x="608.75" y="555.25"/>
 	<column name="codigo_sexo">
 		<type name="serial"/>
 	</column>
@@ -107,7 +107,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="estadoCivil">
 	<schema name="public"/>
-	<position x="61" y="74"/>
+	<position x="611" y="91.5"/>
 	<column name="codigo_eC">
 		<type name="serial"/>
 	</column>
@@ -121,7 +121,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="nacionalidad">
 	<schema name="public"/>
-	<position x="8" y="142"/>
+	<position x="558" y="159.5"/>
 	<column name="codigo_nacionalidad">
 		<type name="serial"/>
 	</column>
@@ -135,7 +135,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="intruccion">
 	<schema name="public"/>
-	<position x="20" y="210"/>
+	<position x="570" y="227.5"/>
 	<column name="codigo_instruccion">
 		<type name="serial"/>
 	</column>
@@ -149,7 +149,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="tipoSangre">
 	<schema name="public"/>
-	<position x="69" y="272"/>
+	<position x="619" y="289.5"/>
 	<column name="codigo_tS">
 		<type name="serial"/>
 	</column>
@@ -163,7 +163,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="tipoLicenciaConducir">
 	<schema name="public"/>
-	<position x="61" y="346"/>
+	<position x="611" y="363.5"/>
 	<column name="codigo_tLC">
 		<type name="serial"/>
 	</column>
@@ -178,7 +178,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="estadoLaboral">
 	<schema name="public"/>
 	<comment><![CDATA[si es activo o pasivo ]]></comment>
-	<position x="69" y="429"/>
+	<position x="619" y="446.5"/>
 	<column name="codigo_eL">
 		<type name="serial"/>
 	</column>
@@ -192,7 +192,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="cargo">
 	<schema name="public"/>
-	<position x="52" y="506"/>
+	<position x="604.5" y="651"/>
 	<column name="codigo_cargo">
 		<type name="serial"/>
 	</column>
@@ -204,10 +204,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="usuario">
+<table name="usuarioSiccopes">
 	<schema name="public"/>
 	<comment><![CDATA[usuarios que van hacer uso del sistema]]></comment>
-	<position x="396.25" y="602.5"/>
+	<position x="15" y="525"/>
 	<column name="cedula_usr">
 		<type name="varchar" length="10"/>
 	</column>
@@ -220,6 +220,38 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="segundoNombre_usr">
 		<type name="varchar" length="25"/>
 	</column>
+	<column name="email_usr">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="cargo_usr">
+		<type name="integer"/>
+	</column>
+	<column name="tipoUsuario_usr">
+		<type name="integer"/>
+	</column>
+	<column name="sexo_usr">
+		<type name="integer"/>
+	</column>
+	<column name="estadoLaboral_usr">
+		<type name="integer"/>
+	</column>
+	<constraint name="pk_usuarioSiccopes" type="pk-constr" factor="100" table="public.&quot;usuarioSiccopes&quot;">
+		<columns names="cedula_usr" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tipoUsuario">
+	<schema name="public"/>
+	<position x="623.75" y="758.75"/>
+	<column name="codigo_tU">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_tU">
+		<type name="varchar" length="25"/>
+	</column>
+	<constraint name="pk_tipoUsuario" type="pk-constr" factor="100" table="public.&quot;tipoUsuario&quot;">
+		<columns names="codigo_tU" ref-type="src-columns"/>
+	</constraint>
 </table>
 
 <constraint name="fk_sexo" type="fk-constr" comparison-type="MATCH FULL"
@@ -257,10 +289,30 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="estadoLaboral_pO" ref-type="src-columns"/>
 	<columns names="codigo_eL" ref-type="dst-columns"/>
 </constraint>
-<constraint name="fk_cargo" type="fk-constr" comparison-type="MATCH FULL"
+<constraint name="fk_cargo_personalOperativo" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.cargo" table="public.&quot;personalOperativo&quot;">
 	<columns names="cargo_pO" ref-type="src-columns"/>
 	<columns names="codigo_cargo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_cargoUsuario_usuario" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.cargo" table="public.&quot;usuarioSiccopes&quot;">
+	<columns names="cargo_usr" ref-type="src-columns"/>
+	<columns names="codigo_cargo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_tipoUsuario" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;tipoUsuario&quot;" table="public.&quot;usuarioSiccopes&quot;">
+	<columns names="tipoUsuario_usr" ref-type="src-columns"/>
+	<columns names="codigo_tU" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_sexo_usuarioSiccopes" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.sexo" table="public.&quot;usuarioSiccopes&quot;">
+	<columns names="sexo_usr" ref-type="src-columns"/>
+	<columns names="codigo_sexo" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_estadoLaboral_usuarioSiccopes" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;estadoLaboral&quot;" table="public.&quot;usuarioSiccopes&quot;">
+	<columns names="estadoLaboral_usr" ref-type="src-columns"/>
+	<columns names="codigo_eL" ref-type="dst-columns"/>
 </constraint>
 <relationship name="&quot;rel_personalOperativo_sexo&quot;" type="relfk"
 	 src-table="public.&quot;personalOperativo&quot;"
@@ -300,6 +352,26 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <relationship name="&quot;rel_personalOperativo_cargo&quot;" type="relfk"
 	 src-table="public.&quot;personalOperativo&quot;"
 	 dst-table="public.cargo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_usuario_cargo" type="relfk"
+	 src-table="public.&quot;usuarioSiccopes&quot;"
+	 dst-table="public.cargo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_usuarioSiccopes_tipoUsuario&quot;" type="relfk"
+	 src-table="public.&quot;usuarioSiccopes&quot;"
+	 dst-table="public.&quot;tipoUsuario&quot;"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_usuarioSiccopes_sexo&quot;" type="relfk"
+	 src-table="public.&quot;usuarioSiccopes&quot;"
+	 dst-table="public.sexo"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="&quot;rel_usuarioSiccopes_estadoLaboral&quot;" type="relfk"
+	 src-table="public.&quot;usuarioSiccopes&quot;"
+	 dst-table="public.&quot;estadoLaboral&quot;"
 	 src-required="true" dst-required="true"/>
 
 </dbmodel>
