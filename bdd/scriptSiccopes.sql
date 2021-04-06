@@ -134,10 +134,11 @@ CREATE TABLE public.cargo(
 -- DROP TABLE public."usuarioSiccopes";
 CREATE TABLE public."usuarioSiccopes"(
 	cedula_usr varchar(10),
-	"contraseña_usr" varchar(20),
+	"contraseña_usr" varchar(35),
+	"primerApellido_usr" varchar(25),
 	"primerNombre_usr" varchar(25),
-	"segundoNombre_usr" varchar(25),
 	email_usr varchar(50),
+	"fechaRegistro_usr" date,
 	cargo_usr integer,
 	"tipoUsuario_usr" integer,
 	sexo_usr integer,

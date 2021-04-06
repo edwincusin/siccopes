@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.7.2" last-position="0,156" last-zoom="0.8">
+<dbmodel pgmodeler-ver="0.7.2" last-position="0,732" last-zoom="1.3">
 <database name="siccopes">
 </database>
 
@@ -218,16 +218,19 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="varchar" length="10"/>
 	</column>
 	<column name="contraseña_usr">
-		<type name="varchar" length="20"/>
+		<type name="varchar" length="35"/>
+	</column>
+	<column name="primerApellido_usr">
+		<type name="varchar" length="25"/>
 	</column>
 	<column name="primerNombre_usr">
 		<type name="varchar" length="25"/>
 	</column>
-	<column name="segundoNombre_usr">
-		<type name="varchar" length="25"/>
-	</column>
 	<column name="email_usr">
 		<type name="varchar" length="50"/>
+	</column>
+	<column name="fechaRegistro_usr">
+		<type name="date"/>
 	</column>
 	<column name="cargo_usr">
 		<type name="integer"/>
