@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.7.2" last-position="0,149" last-zoom="0.8">
+<dbmodel pgmodeler-ver="0.7.2" last-position="293,0" last-zoom="0.8">
 <database name="new_database">
 </database>
 
@@ -86,6 +86,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="cargo_pO">
 		<type name="integer"/>
 	</column>
+	<column name="referenciaFamiliar_pO">
+		<type name="integer"/>
+	</column>
 	<constraint name="pk_cedula_personalOperativo" type="pk-constr" factor="100" table="public.&quot;personalOperativo&quot;">
 		<columns names="cedula_pO" ref-type="src-columns"/>
 	</constraint>
@@ -93,7 +96,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="sexo">
 	<schema name="public"/>
-	<position x="608.75" y="555.25"/>
+	<position x="607.5" y="529"/>
 	<column name="codigo_sexo">
 		<type name="serial"/>
 	</column>
@@ -192,7 +195,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="cargo">
 	<schema name="public"/>
-	<position x="604.5" y="651"/>
+	<position x="603.25" y="627.25"/>
 	<column name="codigo_cargo">
 		<type name="serial"/>
 	</column>
@@ -242,7 +245,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="tipoUsuario">
 	<schema name="public"/>
-	<position x="623.75" y="758.75"/>
+	<position x="626.25" y="730"/>
 	<column name="codigo_tU">
 		<type name="serial"/>
 	</column>
@@ -251,6 +254,46 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="pk_tipoUsuario" type="pk-constr" factor="100" table="public.&quot;tipoUsuario&quot;">
 		<columns names="codigo_tU" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="referenciaFamiliar">
+	<schema name="public"/>
+	<position x="1042.5" y="588.75"/>
+	<column name="codigo_rF">
+		<type name="serial"/>
+	</column>
+	<column name="primerNombre_rF">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="primerApellido_rF">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="celular_rF">
+		<type name="varchar" length="10"/>
+	</column>
+	<column name="telefono_rF">
+		<type name="varchar" length="10"/>
+	</column>
+	<column name="parentesco_rF">
+		<type name="integer" length="25"/>
+	</column>
+	<constraint name="pk_referenciaFamiliar" type="pk-constr" factor="100" table="public.&quot;referenciaFamiliar&quot;">
+		<columns names="codigo_rF" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tipoParentesco">
+	<schema name="public"/>
+	<position x="621.25" y="891.25"/>
+	<column name="codigo_tP">
+		<type name="serial"/>
+	</column>
+	<column name="descripcion_tP">
+		<type name="varchar" length="25"/>
+	</column>
+	<constraint name="pk_tipoParentesco" type="pk-constr" factor="100" table="public.&quot;tipoParentesco&quot;">
+		<columns names="codigo_tP" ref-type="src-columns"/>
 	</constraint>
 </table>
 
@@ -294,6 +337,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="cargo_pO" ref-type="src-columns"/>
 	<columns names="codigo_cargo" ref-type="dst-columns"/>
 </constraint>
+<constraint name="fk_refenciaFamiliar" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;referenciaFamiliar&quot;" table="public.&quot;personalOperativo&quot;">
+	<columns names="referenciaFamiliar_pO" ref-type="src-columns"/>
+	<columns names="codigo_rF" ref-type="dst-columns"/>
+</constraint>
 <constraint name="fk_cargoUsuario_usuario" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.cargo" table="public.&quot;usuarioSiccopes&quot;">
 	<columns names="cargo_usr" ref-type="src-columns"/>
@@ -313,6 +361,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;estadoLaboral&quot;" table="public.&quot;usuarioSiccopes&quot;">
 	<columns names="estadoLaboral_usr" ref-type="src-columns"/>
 	<columns names="codigo_eL" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_tipoParentesco" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;tipoParentesco&quot;" table="public.&quot;referenciaFamiliar&quot;">
+	<columns names="parentesco_rF" ref-type="src-columns"/>
+	<columns names="codigo_tP" ref-type="dst-columns"/>
 </constraint>
 <relationship name="&quot;rel_personalOperativo_sexo&quot;" type="relfk"
 	 src-table="public.&quot;personalOperativo&quot;"
@@ -372,6 +425,20 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <relationship name="&quot;rel_usuarioSiccopes_estadoLaboral&quot;" type="relfk"
 	 src-table="public.&quot;usuarioSiccopes&quot;"
 	 dst-table="public.&quot;estadoLaboral&quot;"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_referenciaFamiliar_tipoParentesco" type="relfk"
+	 src-table="public.&quot;referenciaFamiliar&quot;"
+	 dst-table="public.&quot;tipoParentesco&quot;"
+	 src-required="true" dst-required="true">
+	<label ref-type="dst-label">
+		<position x="-11.162" y="1.80004"/>
+	</label>
+</relationship>
+
+<relationship name="&quot;rel_personalOperativo_referenciaFamiliar&quot;" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.&quot;referenciaFamiliar&quot;"
 	 src-required="true" dst-required="true"/>
 
 </dbmodel>
