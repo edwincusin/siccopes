@@ -20,24 +20,24 @@
         <!-- inicio menu-->
         <div id="cont_menu_menu">
             <ul>
-                <li id="item_menu"><a href="#">Inicio</a></li>
+                <li id="item_menu"><a href="./menu_main.html">Inicio</a></li>
                 <li id="item_menu"><a href="#">Usuario</a>
                     <ul id="desp_submenu">
-                        <li><a href="#">Registrar </a></li>
-                        <li><a href="#">Cambiar Contraseña </a></li>
+                        <li><a href="#">Gestión </a></li>
                     </ul>
                 </li>
                 <li id="item_menu"><a href="#">Personal Operativo</a>
 
                     <ul id="desp_submenu">
-                        <li><a href="#">Registrar / Consultar</a></li>
+                        <li><a href="./menu_registrar_personal_operativos.html">Agregar / Información</a></li>
+                        <li><a href="#">Agregar / Referencias familiar</a></li>
                     </ul>
 
                 </li>
                 <li id="item_menu"><a href="#">Proyecto</a>
 
                     <ul id="desp_submenu">
-                        <li><a href="#">Registrar / Consultar</a></li>
+                        <li><a href="#">Agregar / Información</a></li>
                         <li><a href="#">Inf. Seguridad Interna</a></li>
 
                     </ul>
@@ -61,7 +61,7 @@
                     
                     <ul id="desp_submenu">
                         <li><a href="#">&#128295; Cambiar contraseña</a></li>
-                        <li><a href="#">&#128682; Cerrar sesión</a></li>
+                        <li><a href="./cerrar.php">&#128682; Cerrar sesión</a></li>
                     </ul>
                 </li>
 
@@ -179,18 +179,13 @@
                             <tr>
                                 <td> <label for=""><span>N° Telefono / cell:</span></label> </td>
                                 <td> <input type="text" size="17" maxlength="10" placeholder="Celular o telefono"> </td>
-                                <td> <label for=""><span>Contacto emergencia:</span></label> </td>
-                                <td> <input type="text" size="17" maxlength="10" placeholder="Nombre de familiar cercano"> </td> 
-                                <td> <label for=""><span>N° Telefono / cell:</span></label> </td>
-                                <td> <input type="text" size="17" maxlength="10" placeholder="Celular o telefono"> </td>         
+                                <td> <label for=""><span>Email @:</span></label> </td>
+                                <td colspan="2"> <input type="text" size="36" maxlength="39" placeholder="ejemplo18@email.com"> </td>         
                                 
                             </tr>
                             <tr>
-                                <td> <label for=""><span>Email @:</span></label> </td>
-                                <td colspan="2"> <input type="text" size="36" maxlength="39" placeholder="ejemplo18@email.com"> </td>
-                                <td> <label for=""><span>Dirección domicilio:</span></label> </td>
-                                <td colspan="7"> <textarea name="" id="" cols="39" rows="3" maxlength="60" placeholder="ejemplo: QUITO / OCCIDENTE / LAS CASAS / PRIMAVERA "></textarea> </td>
-                   
+                                <td> <label for=""><span>Dirección domicilio:</span></label> </td>   
+                                <td colspan="7"> <input type="text" size="60" maxlength="39" placeholder="ejemplo: QUITO / OCCIDENTE / LAS CASAS / PRIMAVERA"> </td>         
                             </tr>
 
                     </table>
@@ -203,7 +198,7 @@
                         <div id="fotoop">
                          <img src="./img/icono_login.png" alt="" > 
                          <br>
-                         <input type="submit" value="Cargar">
+                         <input type="submit" value="Subir">
 
                     </div>
                     </td>
