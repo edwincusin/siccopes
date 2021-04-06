@@ -3,8 +3,8 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.7.2" last-position="293,0" last-zoom="0.8">
-<database name="new_database">
+<dbmodel pgmodeler-ver="0.7.2" last-position="0,156" last-zoom="0.8">
+<database name="siccopes">
 </database>
 
 <schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
@@ -89,6 +89,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="referenciaFamiliar_pO">
 		<type name="integer"/>
 	</column>
+	<column name="usuarioSiccopes_pO">
+		<type name="varchar" length="20"/>
+	</column>
 	<constraint name="pk_cedula_personalOperativo" type="pk-constr" factor="100" table="public.&quot;personalOperativo&quot;">
 		<columns names="cedula_pO" ref-type="src-columns"/>
 	</constraint>
@@ -96,7 +99,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="sexo">
 	<schema name="public"/>
-	<position x="607.5" y="529"/>
+	<position x="612.5" y="587.75"/>
 	<column name="codigo_sexo">
 		<type name="serial"/>
 	</column>
@@ -152,7 +155,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="tipoSangre">
 	<schema name="public"/>
-	<position x="619" y="289.5"/>
+	<position x="616.5" y="334.5"/>
 	<column name="codigo_tS">
 		<type name="serial"/>
 	</column>
@@ -166,7 +169,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="tipoLicenciaConducir">
 	<schema name="public"/>
-	<position x="611" y="363.5"/>
+	<position x="616" y="404.75"/>
 	<column name="codigo_tLC">
 		<type name="serial"/>
 	</column>
@@ -181,7 +184,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="estadoLaboral">
 	<schema name="public"/>
 	<comment><![CDATA[si es activo o pasivo ]]></comment>
-	<position x="619" y="446.5"/>
+	<position x="617.75" y="490.25"/>
 	<column name="codigo_eL">
 		<type name="serial"/>
 	</column>
@@ -195,7 +198,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="cargo">
 	<schema name="public"/>
-	<position x="603.25" y="627.25"/>
+	<position x="608.25" y="691"/>
 	<column name="codigo_cargo">
 		<type name="serial"/>
 	</column>
@@ -210,7 +213,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="usuarioSiccopes">
 	<schema name="public"/>
 	<comment><![CDATA[usuarios que van hacer uso del sistema]]></comment>
-	<position x="15" y="525"/>
+	<position x="0" y="616.25"/>
 	<column name="cedula_usr">
 		<type name="varchar" length="10"/>
 	</column>
@@ -245,7 +248,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="tipoUsuario">
 	<schema name="public"/>
-	<position x="626.25" y="730"/>
+	<position x="628.75" y="776.25"/>
 	<column name="codigo_tU">
 		<type name="serial"/>
 	</column>
@@ -285,7 +288,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="tipoParentesco">
 	<schema name="public"/>
-	<position x="621.25" y="891.25"/>
+	<position x="1050" y="816.25"/>
 	<column name="codigo_tP">
 		<type name="serial"/>
 	</column>
@@ -341,6 +344,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;referenciaFamiliar&quot;" table="public.&quot;personalOperativo&quot;">
 	<columns names="referenciaFamiliar_pO" ref-type="src-columns"/>
 	<columns names="codigo_rF" ref-type="dst-columns"/>
+</constraint>
+<constraint name="fk_usuarioSiccopes" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;usuarioSiccopes&quot;" table="public.&quot;personalOperativo&quot;">
+	<columns names="usuarioSiccopes_pO" ref-type="src-columns"/>
+	<columns names="cedula_usr" ref-type="dst-columns"/>
 </constraint>
 <constraint name="fk_cargoUsuario_usuario" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.cargo" table="public.&quot;usuarioSiccopes&quot;">
@@ -440,5 +448,17 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-table="public.&quot;personalOperativo&quot;"
 	 dst-table="public.&quot;referenciaFamiliar&quot;"
 	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_personalOperativo_usuarioSiccopes" type="relfk"
+	 src-table="public.&quot;personalOperativo&quot;"
+	 dst-table="public.&quot;usuarioSiccopes&quot;"
+	 src-required="true" dst-required="true">
+	<line>
+		<position x="125" y="302.2"/>
+	</line>
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 </dbmodel>
