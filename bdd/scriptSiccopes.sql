@@ -10,9 +10,9 @@ SET check_function_bodies = false;
 
 -- Database creation must be done outside an multicommand file.
 -- These commands were put in this file only for convenience.
--- -- object: new_database | type: DATABASE --
--- -- DROP DATABASE new_database;
--- CREATE DATABASE new_database
+-- -- object: siccopes | type: DATABASE --
+-- -- DROP DATABASE siccopes;
+-- CREATE DATABASE siccopes
 -- ;
 -- -- ddl-end --
 -- 
@@ -44,6 +44,7 @@ CREATE TABLE public."personalOperativo"(
 	"estadoLaboral_pO" integer,
 	"cargo_pO" integer,
 	"referenciaFamiliar_pO" integer,
+	"usuarioSiccopes_pO" varchar(20),
 	CONSTRAINT "pk_cedula_personalOperativo" PRIMARY KEY ("cedula_pO")
 
 );
@@ -247,6 +248,14 @@ ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ALTER TABLE public."personalOperativo" DROP CONSTRAINT "fk_refenciaFamiliar";
 ALTER TABLE public."personalOperativo" ADD CONSTRAINT "fk_refenciaFamiliar" FOREIGN KEY ("referenciaFamiliar_pO")
 REFERENCES public."referenciaFamiliar" ("codigo_rF") MATCH FULL
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+
+-- object: "fk_usuarioSiccopes" | type: CONSTRAINT --
+-- ALTER TABLE public."personalOperativo" DROP CONSTRAINT "fk_usuarioSiccopes";
+ALTER TABLE public."personalOperativo" ADD CONSTRAINT "fk_usuarioSiccopes" FOREIGN KEY ("usuarioSiccopes_pO")
+REFERENCES public."usuarioSiccopes" (cedula_usr) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
