@@ -74,7 +74,7 @@
                </fieldset>
 
                <fieldset> <legend>Rol</legend>
-                <table id="rel_lab">
+                <table>
                     <tr>
                         <td> <label for=""><span>Estado:</span></label> </td>
                         <td>
@@ -98,7 +98,7 @@
                </fieldset>
 
                <input type="submit" value="&#10004; Guardar">
-               <input type="submit" value="&#128221; Modificar Cambios">
+               <input type="submit" value="&#128221; Modificar cambios">
             </div>
 
 
