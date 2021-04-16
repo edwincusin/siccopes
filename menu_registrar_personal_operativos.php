@@ -8,7 +8,6 @@
 
 <body class="body_menu">
     <div class="contenedor_menu_main">
-        <div class="cabecera_menu">
             <!--menu inicio   + cabecera logos-->                
         <?php           
              include './menu_insertar.php';
